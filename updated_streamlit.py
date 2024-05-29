@@ -25,12 +25,12 @@ selected_sidebar_option = st.sidebar.radio(
 # In[3]:
 
 
-consumer = pd.read_excel('/streamlit/Consumer Sentiment.xlsx')
-finance = pd.read_excel('/streamlit/Financial.xlsx')
-housing = pd.read_excel('/streamlit/Housing.xlsx')
-inflation = pd.read_excel('/streamlit/Inflation.xlsx')
-labor = pd.read_excel('/streamlit/Labor.xlsx')
-production = pd.read_excel('/streamlit/Production.xlsx')
+consumer = pd.read_excel('streamlit/Consumer Sentiment.xlsx')
+finance = pd.read_excel('streamlit/Financial.xlsx')
+housing = pd.read_excel('streamlit/Housing.xlsx')
+inflation = pd.read_excel('streamlit/Inflation.xlsx')
+labor = pd.read_excel('streamlit/Labor.xlsx')
+production = pd.read_excel('streamlit/Production.xlsx')
 
 
 # # consumer
