@@ -853,17 +853,29 @@ def display_production_section():
         def graphs(name):
 
             chart_data = production.set_index('Date')[name] ##
-            chart = alt.Chart(chart_data.reset_index()).mark_line().encode(
-                x='Date',
-                y=name,
-            ).properties(
-                width=600,
-                height=400
-            ).configure_axis(
-                labelFontSize=12,
-                titleFontSize=14
-            )
-
+            if chart_data.isnull().any():
+                chart = alt.Chart(chart_data.reset_index()).mark_line(point=True).encode(
+                    x='Date',
+                    y=name,
+                ).properties(
+                    width=600,
+                    height=400
+                ).configure_axis(
+                    labelFontSize=12,
+                    titleFontSize=14
+                )
+            else:
+                # If there are no None values, display a simple line chart
+                chart = alt.Chart(chart_data.reset_index()).mark_line(point=False).encode(
+                    x='Date',
+                    y=name,
+                ).properties(
+                    width=600,
+                    height=400
+                ).configure_axis(
+                    labelFontSize=12,
+                    titleFontSize=14
+                )
             st.altair_chart(chart, use_container_width=True)
             st.write(f"""
             *Note: The x-axis represents the Date, and the y-axis represents the {name} values.*
