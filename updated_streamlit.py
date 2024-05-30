@@ -19,7 +19,7 @@ import altair as alt
 # Sidebar options
 selected_sidebar_option = st.sidebar.radio(
     "Choose a sector to investigate",
-    ("Consumer Sentiment", "Finance", "Housing","Inflation","Labor","Production")
+    ("Consumer Sentiment", "Finance", "Housing","Inflation","Labor Market","Production")
 )
 
 # In[3]:
@@ -630,7 +630,7 @@ for i in range(1,6):
 # In[28]:
 # Functions for Labor section
 def display_labor_section():
-    st.title("Labor")
+    st.title("Labor Market")
     labor
 
     data_df = pd.DataFrame(
@@ -1073,7 +1073,7 @@ def display_finance_section():
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
 
 # Display content based on selected sidebar option
-#"Consumer", "Finance", "Housing","Inflation","Labor","Production"
+#"Consumer Sentiment", "Finance", "Housing","Inflation","Labor Market","Production"
 if selected_sidebar_option == "Consumer Sentiment":
     display_consumer_section()
 elif selected_sidebar_option == "Finance":
@@ -1082,7 +1082,7 @@ elif selected_sidebar_option == "Housing":
     display_housing_section()
 elif selected_sidebar_option == "Inflation":
     display_inflation_section()
-elif selected_sidebar_option == "Labor":
+elif selected_sidebar_option == "Labor Market":
     display_labor_section()
 elif selected_sidebar_option == "Production":
     display_production_section()
