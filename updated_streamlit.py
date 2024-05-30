@@ -128,38 +128,6 @@ for i in range(1,6):
 # Functions for Consumer section
 def display_consumer_section():
     st.title("Consumer Sentiment")
-    consumer
-    data_df = pd.DataFrame(
-        {
-            "Name": ["Conference Board US Leading Index Average Consumer Expectation",'Conference Board Consumer Confidence Expectations SA 1985=100','University of Michigan Consumer Expectations Index','University of Michigan Consumer Sentiment Index','Conference Board Consumer Confidence SA 1985=100'],
-            "Latest":[l2[0],l2[1],l2[2],l2[3],l2[4]],
-            "Last 3m avg": [l3[0],l3[1],l3[2],l3[3],l3[4]],
-            "Last 6m avg": [l5[0],l5[1],l5[2],l5[3],l5[4]],
-            "Last 12m avg":[l4[0],l4[1],l4[2],l4[3],l4[4]],
-            "data": [l1[0],l1[1],l1[2],l1[3],l1[4]],
-
-        }
-    )
-
-    st.data_editor(
-        data_df,
-        column_config={
-            "Name": st.column_config.TextColumn(),
-            "Latest": st.column_config.NumberColumn(),
-            "Last 3m avg":  st.column_config.NumberColumn(),
-            "Last 6m avg":  st.column_config.NumberColumn(),
-            "Last 12m avg":  st.column_config.NumberColumn(),
-            "data": st.column_config.LineChartColumn(
-                "Last 20 Years",
-                width="large",
-                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
-                y_min=-5,
-                y_max=5
-             ),
-        },
-        hide_index=True,
-    )
-
     dict_inf = {
             '1': 'Conference Board US Leading Index Average Consumer Expectation',
             '2': 'Conference Board Consumer Confidence Expectations SA 1985=100',
@@ -208,6 +176,38 @@ def display_consumer_section():
         else:
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
 
+    data_df = pd.DataFrame(
+        {
+            "Name": ["Conference Board US Leading Index Average Consumer Expectation",'Conference Board Consumer Confidence Expectations SA 1985=100','University of Michigan Consumer Expectations Index','University of Michigan Consumer Sentiment Index','Conference Board Consumer Confidence SA 1985=100'],
+            "Latest":[l2[0],l2[1],l2[2],l2[3],l2[4]],
+            "Last 3m avg": [l3[0],l3[1],l3[2],l3[3],l3[4]],
+            "Last 6m avg": [l5[0],l5[1],l5[2],l5[3],l5[4]],
+            "Last 12m avg":[l4[0],l4[1],l4[2],l4[3],l4[4]],
+            "data": [l1[0],l1[1],l1[2],l1[3],l1[4]],
+
+        }
+    )
+
+    st.data_editor(
+        data_df,
+        column_config={
+            "Name": st.column_config.TextColumn(),
+            "Latest": st.column_config.NumberColumn(),
+            "Last 3m avg":  st.column_config.NumberColumn(),
+            "Last 6m avg":  st.column_config.NumberColumn(),
+            "Last 12m avg":  st.column_config.NumberColumn(),
+            "data": st.column_config.LineChartColumn(
+                "Last 20 Years",
+                width="large",
+                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
+                y_min=-5,
+                y_max=5
+             ),
+        },
+        hide_index=True,
+    )
+    consumer
+    
 # # Housing
 
 # In[10]:
@@ -302,38 +302,7 @@ for i in range(1,3):
 # Functions for Housing section
 def display_housing_section():
     st.title("Housing")
-    housing
-
-    data_df = pd.DataFrame(
-        {
-            "Name": ["Private Housing Units Started by Structure Total Monthly % Change SA",'Conference Board US Leading Index Building Permits'],
-            "Latest":[h_l2[0],h_l2[1]],
-            "Last 3m avg": [h_l3[0],h_l3[1]],
-            "Last 6m avg": [h_l5[0],h_l5[1]],
-            "Last 12m avg":[h_l4[0],h_l4[1]],
-            "data": [h_l1[0],h_l1[1]],
-
-        }
-    )
-
-    st.data_editor(
-        data_df,
-        column_config={
-            "Name": st.column_config.TextColumn(),
-            "Latest": st.column_config.NumberColumn(),
-            "Last 3m avg":  st.column_config.NumberColumn(),
-            "Last 6m avg":  st.column_config.NumberColumn(),
-            "Last 12m avg":  st.column_config.NumberColumn(),
-            "data": st.column_config.LineChartColumn(
-                "Last 20 Years",
-                width="large",
-                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
-                y_min=-1,
-                y_max=1,
-             ),
-        },
-        hide_index=True,
-    )
+    
     dict_inf = {
         '1':'Private Housing Units Started by Structure Total Monthly % Change SA',
         '2':'Conference Board US Leading Index Building Permits'}
@@ -378,6 +347,39 @@ def display_housing_section():
             """)
         else:
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
+
+    data_df = pd.DataFrame(
+        {
+            "Name": ["Private Housing Units Started by Structure Total Monthly % Change SA",'Conference Board US Leading Index Building Permits'],
+            "Latest":[h_l2[0],h_l2[1]],
+            "Last 3m avg": [h_l3[0],h_l3[1]],
+            "Last 6m avg": [h_l5[0],h_l5[1]],
+            "Last 12m avg":[h_l4[0],h_l4[1]],
+            "data": [h_l1[0],h_l1[1]],
+
+        }
+    )
+
+    st.data_editor(
+        data_df,
+        column_config={
+            "Name": st.column_config.TextColumn(),
+            "Latest": st.column_config.NumberColumn(),
+            "Last 3m avg":  st.column_config.NumberColumn(),
+            "Last 6m avg":  st.column_config.NumberColumn(),
+            "Last 12m avg":  st.column_config.NumberColumn(),
+            "data": st.column_config.LineChartColumn(
+                "Last 20 Years",
+                width="large",
+                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
+                y_min=-1,
+                y_max=1,
+             ),
+        },
+        hide_index=True,
+    )
+    housing
+
 
 # # Inflation
 
@@ -462,41 +464,6 @@ for i in range(1,4):
 def display_inflation_section():
     inflation['CPI ex-Food & Energy (mom %)'] = pd.to_numeric(inflation['CPI ex-Food & Energy (mom %)'], errors='coerce')
     st.title("Inflation")
-    inflation
-
-    data_df = pd.DataFrame(
-        {
-            "Name": ['CPI ex-Food & Energy (mom %)',
-                     'Consumer Price Index (mom %)',
-                     'US PCE Index Market-Based Motor Vehicles and Parts SA'],
-            "Latest":[i_l2[0],i_l2[1],i_l2[2]],
-            "Last 3m avg": [i_l3[0],i_l3[1],i_l3[2]],
-            "Last 6m avg": [i_l5[0],i_l5[1],i_l5[2]],
-            "Last 12m avg":[i_l4[0],i_l4[1],i_l4[2]],
-            "data": [i_l1[0],i_l1[1],i_l1[2]],
-
-        }
-    )
-
-    st.data_editor(
-        data_df,
-        column_config={
-            "Name": st.column_config.TextColumn(),
-            "Latest": st.column_config.NumberColumn(),
-            "Last 3m avg":  st.column_config.NumberColumn(),
-            "Last 6m avg":  st.column_config.NumberColumn(),
-            "Last 12m avg":  st.column_config.NumberColumn(),
-            "data": st.column_config.LineChartColumn(
-                "Last 20 Years",
-                width="large",
-                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
-                y_min=-1,
-                y_max=1,
-             ),
-        },
-        hide_index=True,
-    )
-    
     
     dict_inf = {
         '1': "CPI ex-Food & Energy (mom %)",
@@ -543,6 +510,42 @@ def display_inflation_section():
             """)
         else:
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
+
+    data_df = pd.DataFrame(
+        {
+            "Name": ['CPI ex-Food & Energy (mom %)',
+                     'Consumer Price Index (mom %)',
+                     'US PCE Index Market-Based Motor Vehicles and Parts SA'],
+            "Latest":[i_l2[0],i_l2[1],i_l2[2]],
+            "Last 3m avg": [i_l3[0],i_l3[1],i_l3[2]],
+            "Last 6m avg": [i_l5[0],i_l5[1],i_l5[2]],
+            "Last 12m avg":[i_l4[0],i_l4[1],i_l4[2]],
+            "data": [i_l1[0],i_l1[1],i_l1[2]],
+
+        }
+    )
+
+    st.data_editor(
+        data_df,
+        column_config={
+            "Name": st.column_config.TextColumn(),
+            "Latest": st.column_config.NumberColumn(),
+            "Last 3m avg":  st.column_config.NumberColumn(),
+            "Last 6m avg":  st.column_config.NumberColumn(),
+            "Last 12m avg":  st.column_config.NumberColumn(),
+            "data": st.column_config.LineChartColumn(
+                "Last 20 Years",
+                width="large",
+                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
+                y_min=-1,
+                y_max=1,
+             ),
+        },
+        hide_index=True,
+    )
+    inflation
+
+
 # # labor
 
 # In[8]:
@@ -631,42 +634,7 @@ for i in range(1,6):
 # Functions for Labor section
 def display_labor_section():
     st.title("Labor Market")
-    labor
-
-    data_df = pd.DataFrame(
-        {
-            "Name": ["US Employees on Nonfarm Payrolls Total SA",
-                     'US Personal Income MoM SA',
-                     'Nonagricultural Industries Usually Part Time Economic Reasons',
-                     'Conference Board Employment Trends Index',
-                     'U-3 US Unemployment Rate Total in Labor Force Seasonally Adjusted'],
-            "Latest":[l_l2[0],l_l2[1],l_l2[2],l_l2[3],l_l2[4]],
-            "Last 3m avg": [l_l3[0],l_l3[1],l_l3[2],l_l3[3],l_l3[4]],
-            "Last 5m avg": [l_l3[0],l_l5[1],l_l5[2],l_l5[3],l_l5[4]],
-            "Last 12m avg":[l_l4[0],l_l4[1],l_l4[2],l_l4[3],l_l4[4]],
-            "data": [l_l1[0],l_l1[1],l_l1[2],l_l1[3],l_l1[4]],
-
-        }
-    )
-
-    st.data_editor(
-        data_df,
-        column_config={
-            "Name": st.column_config.TextColumn(),
-            "Latest": st.column_config.NumberColumn(),
-            "Last 3m avg":  st.column_config.NumberColumn(),
-            "Last 6m avg":  st.column_config.NumberColumn(),
-            "Last 12m avg":  st.column_config.NumberColumn(),
-            "data": st.column_config.LineChartColumn(
-                "Last 20 Years",
-                width="large",
-                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
-                y_min=-5,
-                y_max=5,
-             ),
-        },
-        hide_index=True,
-    )
+    
     dict_inf = {
         '1': 'US Employees on Nonfarm Payrolls Total SA',
         '2':'US Personal Income MoM SA',
@@ -715,6 +683,43 @@ def display_labor_section():
         else:
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
 
+    data_df = pd.DataFrame(
+        {
+            "Name": ["US Employees on Nonfarm Payrolls Total SA",
+                     'US Personal Income MoM SA',
+                     'Nonagricultural Industries Usually Part Time Economic Reasons',
+                     'Conference Board Employment Trends Index',
+                     'U-3 US Unemployment Rate Total in Labor Force Seasonally Adjusted'],
+            "Latest":[l_l2[0],l_l2[1],l_l2[2],l_l2[3],l_l2[4]],
+            "Last 3m avg": [l_l3[0],l_l3[1],l_l3[2],l_l3[3],l_l3[4]],
+            "Last 5m avg": [l_l3[0],l_l5[1],l_l5[2],l_l5[3],l_l5[4]],
+            "Last 12m avg":[l_l4[0],l_l4[1],l_l4[2],l_l4[3],l_l4[4]],
+            "data": [l_l1[0],l_l1[1],l_l1[2],l_l1[3],l_l1[4]],
+
+        }
+    )
+
+    st.data_editor(
+        data_df,
+        column_config={
+            "Name": st.column_config.TextColumn(),
+            "Latest": st.column_config.NumberColumn(),
+            "Last 3m avg":  st.column_config.NumberColumn(),
+            "Last 6m avg":  st.column_config.NumberColumn(),
+            "Last 12m avg":  st.column_config.NumberColumn(),
+            "data": st.column_config.LineChartColumn(
+                "Last 20 Years",
+                width="large",
+                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
+                y_min=-5,
+                y_max=5,
+             ),
+        },
+        hide_index=True,
+    )
+    labor
+
+    
 # # Production
 
 # In[20]:
@@ -803,38 +808,7 @@ for i in range(1,6):
 # Functions for Production section
 def display_production_section():
     st.title("Production")
-    production
-
-    data_df = pd.DataFrame(
-        {
-            "Name": ["Real GDP (qoq %, saar)",'US Manufacturing & Trade Sales in Nominal Dollars SA','US Industrial Production MOM SA','ISM Manufacturing Report on Business New Orders SA','ISM Manufacturing PMI SA'],
-            "Latest":[p_l2[0],p_l2[1],p_l2[2],p_l2[3],p_l2[4]],
-            "Last 3m avg": [p_l3[0],p_l3[1],p_l3[2],p_l3[3],p_l3[4]],
-            "Last 6m avg": [p_l5[0],p_l5[1],p_l5[2],p_l5[3],p_l5[4]],
-            "Last 12m avg":[p_l4[0],p_l4[1],p_l4[2],p_l4[3],p_l4[4]],
-            "data": [p_l1[0],p_l1[1],p_l1[2],p_l1[3],p_l1[4]],
-
-        }
-    )
-
-    st.data_editor(
-        data_df,
-        column_config={
-            "Name": st.column_config.TextColumn(),
-            "Latest": st.column_config.NumberColumn(),
-            "Last 3m avg":  st.column_config.NumberColumn(),
-            "Last 6m avg":  st.column_config.NumberColumn(),
-            "Last 12m avg":  st.column_config.NumberColumn(),
-            "data": st.column_config.LineChartColumn(
-                "Last 20 Years",
-                width="large",
-                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
-                y_min=-5,
-                y_max=5,
-             ),
-        },
-        hide_index=True,
-    )
+    
     dict_inf = {
         '1': 'Real GDP (qoq %, saar)',
         '2':'US Manufacturing & Trade Sales in Nominal Dollars SA',
@@ -876,6 +850,7 @@ def display_production_section():
                     labelFontSize=12,
                     titleFontSize=14
                 )
+
             st.altair_chart(chart, use_container_width=True)
             st.write(f"""
             *Note: The x-axis represents the Date, and the y-axis represents the {name} values.*
@@ -894,6 +869,40 @@ def display_production_section():
             """)
         else:
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
+
+    data_df = pd.DataFrame(
+        {
+            "Name": ["Real GDP (qoq %, saar)",'US Manufacturing & Trade Sales in Nominal Dollars SA','US Industrial Production MOM SA','ISM Manufacturing Report on Business New Orders SA','ISM Manufacturing PMI SA'],
+            "Latest":[p_l2[0],p_l2[1],p_l2[2],p_l2[3],p_l2[4]],
+            "Last 3m avg": [p_l3[0],p_l3[1],p_l3[2],p_l3[3],p_l3[4]],
+            "Last 6m avg": [p_l5[0],p_l5[1],p_l5[2],p_l5[3],p_l5[4]],
+            "Last 12m avg":[p_l4[0],p_l4[1],p_l4[2],p_l4[3],p_l4[4]],
+            "data": [p_l1[0],p_l1[1],p_l1[2],p_l1[3],p_l1[4]],
+
+        }
+    )
+
+    st.data_editor(
+        data_df,
+        column_config={
+            "Name": st.column_config.TextColumn(),
+            "Latest": st.column_config.NumberColumn(),
+            "Last 3m avg":  st.column_config.NumberColumn(),
+            "Last 6m avg":  st.column_config.NumberColumn(),
+            "Last 12m avg":  st.column_config.NumberColumn(),
+            "data": st.column_config.LineChartColumn(
+                "Last 20 Years",
+                width="large",
+                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
+                y_min=-5,
+                y_max=5,
+             ),
+        },
+        hide_index=True,
+    )
+    production
+
+    
 # # Finance
 
 # In[23]:
@@ -984,43 +993,7 @@ for i in range(1,8):
 # Functions for Finance section
 def display_finance_section():
     st.title("Finance")
-    finance
-    data_df = pd.DataFrame(
-        {
-            "Name": ["United States Financial Stress Index",
-                     'St Louis Federal Reserve Bank Financial Stress Index 4.0',
-                     'NY Fed Prob of Recession in US Twelve Months Ahead Predicted by Treasury Spread',
-                     'Chicago Fed Adjusted National Financial Conditions Index',
-                     'Conference Board US Leading Index Leading Credit Index',
-                     'Tighter Standards for C&I Loans for Large Firms (%)',
-                     'Tighter Standards for C&I Loans for Small Firms (%)'],
-            "Latest":[f_l2[0],f_l2[1],f_l2[2],f_l2[3],f_l2[4],f_l2[5],f_l2[6]],
-            "Last 3m avg": [f_l3[0],f_l3[1],f_l3[2],f_l3[3],f_l3[4],f_l3[5],f_l3[6]],
-            "Last 6m avg": [f_l5[0],f_l5[1],f_l5[2],f_l5[3],f_l5[4],f_l5[5],f_l5[6]],
-            "Last 12m avg":[f_l4[0],f_l4[1],f_l4[2],f_l4[3],f_l4[4],f_l4[5],f_l4[6]],
-            "data": [f_l1[0],f_l1[1],f_l1[2],f_l1[3],f_l1[4],f_l1[5],f_l1[6]],
-
-        }
-    )
-
-    st.data_editor(
-        data_df,
-        column_config={
-            "Name": st.column_config.TextColumn(),
-            "Latest": st.column_config.NumberColumn(),
-            "Last 3m avg":  st.column_config.NumberColumn(),
-            "Last 6m avg":  st.column_config.NumberColumn(),
-            "Last 12m avg":  st.column_config.NumberColumn(),
-            "data": st.column_config.LineChartColumn(
-                "Last 20 Years",
-                width="large",
-                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
-                y_min=-5,
-                y_max=5,
-             ),
-        },
-        hide_index=True,
-    )
+    
     dict_inf = {
         '1': 'United States Financial Stress Index',
         '2':'St Louis Federal Reserve Bank Financial Stress Index 4.0',
@@ -1083,6 +1056,47 @@ def display_finance_section():
             """)
         else:
             st.write("Columns 'Date' and/or '{}' not found in the dataset.".format(selected_option))
+
+    data_df = pd.DataFrame(
+        {
+            "Name": ["United States Financial Stress Index",
+                     'St Louis Federal Reserve Bank Financial Stress Index 4.0',
+                     'NY Fed Prob of Recession in US Twelve Months Ahead Predicted by Treasury Spread',
+                     'Chicago Fed Adjusted National Financial Conditions Index',
+                     'Conference Board US Leading Index Leading Credit Index',
+                     'Tighter Standards for C&I Loans for Large Firms (%)',
+                     'Tighter Standards for C&I Loans for Small Firms (%)'],
+            "Latest":[f_l2[0],f_l2[1],f_l2[2],f_l2[3],f_l2[4],f_l2[5],f_l2[6]],
+            "Last 3m avg": [f_l3[0],f_l3[1],f_l3[2],f_l3[3],f_l3[4],f_l3[5],f_l3[6]],
+            "Last 6m avg": [f_l5[0],f_l5[1],f_l5[2],f_l5[3],f_l5[4],f_l5[5],f_l5[6]],
+            "Last 12m avg":[f_l4[0],f_l4[1],f_l4[2],f_l4[3],f_l4[4],f_l4[5],f_l4[6]],
+            "data": [f_l1[0],f_l1[1],f_l1[2],f_l1[3],f_l1[4],f_l1[5],f_l1[6]],
+
+        }
+    )
+
+    st.data_editor(
+        data_df,
+        column_config={
+            "Name": st.column_config.TextColumn(),
+            "Latest": st.column_config.NumberColumn(),
+            "Last 3m avg":  st.column_config.NumberColumn(),
+            "Last 6m avg":  st.column_config.NumberColumn(),
+            "Last 12m avg":  st.column_config.NumberColumn(),
+            "data": st.column_config.LineChartColumn(
+                "Last 20 Years",
+                width="large",
+                help="Conference Board US Leading Index Average Consumer Expectation in last 20 years",
+                y_min=-5,
+                y_max=5,
+             ),
+        },
+        hide_index=True,
+    )
+    finance
+
+
+
 
 # Display content based on selected sidebar option
 #"Consumer Sentiment", "Finance", "Housing","Inflation","Labor Market","Production"
