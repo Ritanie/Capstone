@@ -692,7 +692,7 @@ def display_labor_section():
                      'U-3 US Unemployment Rate Total in Labor Force Seasonally Adjusted'],
             "Latest":[l_l2[0],l_l2[1],l_l2[2],l_l2[3],l_l2[4]],
             "Last 3m avg": [l_l3[0],l_l3[1],l_l3[2],l_l3[3],l_l3[4]],
-            "Last 5m avg": [l_l3[0],l_l5[1],l_l5[2],l_l5[3],l_l5[4]],
+            "Last 6m avg": [l_l3[0],l_l5[1],l_l5[2],l_l5[3],l_l5[4]],
             "Last 12m avg":[l_l4[0],l_l4[1],l_l4[2],l_l4[3],l_l4[4]],
             "data": [l_l1[0],l_l1[1],l_l1[2],l_l1[3],l_l1[4]],
 
